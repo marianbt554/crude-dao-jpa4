@@ -20,10 +20,13 @@ public class CrudAppApplication {
 
 		return runner -> {
 			//createStudent(studentDAO);
-			createMultipleStudents(studentDAO);
+			//createMultipleStudents(studentDAO);
+			readStudent(studentDAO);
 		};
 
 	}
+
+
 	private void createStudent(StudentDAO studentDAO) {
 		//cream un obiect Student
 		System.out.println("Creating new student object...");
@@ -51,4 +54,24 @@ public class CrudAppApplication {
 		studentDAO.save(newStudent3);
 
 	}
+
+	private void readStudent(StudentDAO studentDAO) {
+
+		//creeaza un obiect de tip student
+		System.out.println("Creating new studetn object...");
+		Student newStudent = new Student("Mircea", "Popescu","mircea@pixel.academy");
+
+		//salveaza studentul in baza de date
+		System.out.println("Saving student object...");
+		studentDAO.save(newStudent);
+		//afiseaza id-ul studentului
+		int theId = newStudent.getId();
+		System.out.println("Saved student. Generated id: " + theId);
+		//recupereaza studentul pe baza id-ului
+		System.out.println("Retrieving student with id " + theId);
+		Student student = studentDAO.findById(theId);
+		//afiseza detaliile studentului
+		System.out.println("Student found: " + student);
+	}
+
 }
