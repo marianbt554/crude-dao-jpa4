@@ -21,8 +21,8 @@ public class CrudAppApplication {
 		return runner -> {
 			//createStudent(studentDAO);
 			//createMultipleStudents(studentDAO);
-			readStudent(studentDAO);
-		};
+			//readStudent(studentDAO);
+			queryForStudents(studentDAO);		};
 
 	}
 
@@ -30,7 +30,7 @@ public class CrudAppApplication {
 	private void createStudent(StudentDAO studentDAO) {
 		//cream un obiect Student
 		System.out.println("Creating new student object...");
-		Student newStudent = new Student("John", "Doe", "john@pixelacademy.md");
+		Student newStudent = new Student("Vasile", "Branza", "branza@pixelacademy.md");
 
 		//salvam obiectul Student in baza de date
 		System.out.println("Saving student object...");
@@ -74,4 +74,10 @@ public class CrudAppApplication {
 		System.out.println("Student found: " + student);
 	}
 
+
+	private void queryForStudents(StudentDAO studentDAO) {
+		//obtine lista de studenti
+
+		//afiseaza lista de studenti
+	}
 }
